@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using YourNamespace.Data;
-using YourNamespace.Models;
+using OrdersWebApp.Data;
+using OrdersWebApp.Models;
 
-namespace YourNamespace.Controllers
+namespace OrdersWebApp.Controllers
 {
     public class OrderController : Controller
     {
