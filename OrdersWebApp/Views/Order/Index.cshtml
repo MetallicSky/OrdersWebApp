@@ -1,0 +1,31 @@
+﻿@model IEnumerable<YourNamespace.Models.Order>
+
+<h2>Order List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order Number</th>
+            <th>Sender</th>
+            <th>Recipient</th>
+            <th>Weight (kg)</th>
+            <th>Pickup Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.SenderCity, @order.SenderAddress</td>
+                <td>@order.RecipientCity, @order.RecipientAddress</td>
+                <td>@order.CargoWeight</td>
+                <td>@order.CargoPickupDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@order.OrderId" class="btn btn-info">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Create" class="btn btn-primary">Create New Order</a>

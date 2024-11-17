@@ -1,0 +1,49 @@
+﻿@using OrderWebAppBlazor.Shared
+
+@page "/orders/create"
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+<h3>Create New Order</h3>
+
+<EditForm Model="Order" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label>Sender City:</label>
+        <InputText @bind-Value="Order.SenderCity" />
+    </div>
+    <div>
+        <label>Sender Address:</label>
+        <InputText @bind-Value="Order.SenderAddress" />
+    </div>
+    <div>
+        <label>Recipient City:</label>
+        <InputText @bind-Value="Order.RecipientCity" />
+    </div>
+    <div>
+        <label>Recipient Address:</label>
+        <InputText @bind-Value="Order.RecipientAddress" />
+    </div>
+    <div>
+        <label>Cargo Weight:</label>
+        <InputNumber @bind-Value="Order.CargoWeight" />
+    </div>
+    <div>
+        <label>Pickup Date:</label>
+        <InputDate @bind-Value="Order.PickupDate" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+
+@code {
+    private Order Order = new();
+
+    private async Task HandleSubmit()
+    {
+        await Http.PostAsJsonAsync("api/orders", Order);
+        Nav.NavigateTo("/orders");
+    }
+}

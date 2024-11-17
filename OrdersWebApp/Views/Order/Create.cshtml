@@ -1,0 +1,36 @@
+﻿@model YourNamespace.Models.Order
+
+<h2>Create Order</h2>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Sender's City</label>
+        <input asp-for="SenderCity" class="form-control" />
+        <span asp-validation-for="SenderCity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Sender's Address</label>
+        <input asp-for="SenderAddress" class="form-control" />
+        <span asp-validation-for="SenderAddress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Recipient's City</label>
+        <input asp-for="RecipientCity" class="form-control" />
+        <span asp-validation-for="RecipientCity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Recipient's Address</label>
+        <input asp-for="RecipientAddress" class="form-control" />
+        <span asp-validation-for="RecipientAddress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Cargo Weight (kg)</label>
+        <input asp-for="CargoWeight" class="form-control" />
+        <span asp-validation-for="CargoWeight" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Pickup Date</label>
+        <input asp-for="CargoPickupDate" type="date" class="form-control" />
+        <span asp-validation-for="CargoPickupDate" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

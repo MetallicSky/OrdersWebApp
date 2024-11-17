@@ -1,0 +1,47 @@
+﻿@page "/orders"
+@inject HttpClient Http
+
+<h3>Order List</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Order Number</th>
+            <th>Sender</th>
+            <th>Recipient</th>
+            <th>Weight</th>
+            <th>Pickup Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Orders == null)
+        {
+            <tr><td colspan="6">Loading...</td></tr>
+        }
+        else
+        {
+            @foreach (var order in Orders)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.SenderCity, @order.SenderAddress</td>
+                    <td>@order.RecipientCity, @order.RecipientAddress</td>
+                    <td>@order.CargoWeight</td>
+                    <td>@order.PickupDate</td>
+                    <td>
+                        <a href="/orders/@order.Id">View</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<Order>? Orders;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Orders = await Http.GetFromJsonAsync<List<Order>>("api/orders");
+    }
+}

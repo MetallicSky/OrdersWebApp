@@ -1,0 +1,11 @@
+﻿@model YourNamespace.Models.Order
+
+<h2>Order Details</h2>
+<div>
+    <strong>Order Number:</strong> @Model.OrderId<br />
+    <strong>Sender:</strong> @Model.SenderCity, @Model.SenderAddress<br />
+    <strong>Recipient:</strong> @Model.RecipientCity, @Model.RecipientAddress<br />
+    <strong>Weight (kg):</strong> @Model.CargoWeight<br />
+    <strong>Pickup Date:</strong> @Model.CargoPickupDate.ToShortDateString()
+</div>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>
