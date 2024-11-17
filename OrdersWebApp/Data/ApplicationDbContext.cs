@@ -1,14 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
-using YourNamespace.Data;
-using YourNamespace.Models;
-
-namespace YourNamespace.Data
-=======
+using OrdersWebApp.Data;
 using OrdersWebApp.Models;
 
 namespace OrdersWebApp.Data
->>>>>>> d86c37d06541f67d71a9b6df8dd2f3e5d6a36c68
 {
     public class ApplicationDbContext : DbContext
     {
@@ -17,7 +11,6 @@ namespace OrdersWebApp.Data
         public DbSet<Order> Orders { get; set; }
     }
 }
-<<<<<<< HEAD
 
 public static class DbInitializer
 {
@@ -57,5 +50,3 @@ public static class DbInitializer
         context.SaveChanges();
     }
 }
-=======
->>>>>>> d86c37d06541f67d71a9b6df8dd2f3e5d6a36c68
